@@ -85,10 +85,10 @@ public class AgendamentoController {
 			remetenteService.editar(remetente);
 	}
 	
-	@DeleteMapping("remetentes/{id}")
-	public void removerRemetente(@PathVariable Integer id)
+	@DeleteMapping("{idAgendamento}/remetentes/{id}")
+	public void removerRemetente(@PathVariable Integer idAgendamento, @PathVariable Integer id)
 	{  
-		Agendamento agendamento= agendamentoService.obterUm(id);
+		Agendamento agendamento= agendamentoService.obterUm(idAgendamento);
 		agendamento.setRemetente(null);
 		agendamentoService.adicionar(agendamento);
 		remetenteService.remover(id);
